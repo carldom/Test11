@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+            window.onload = function(){
+                var oBtn = document.getElementsByTagName("button");
+                for( var i=0; i<oBtn.length;i++){
+                    oBtn[i].onclick= (function(index) {
+                        return function() {
+                            alert(index);
+                        }
+                    })(i);
+                }
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <button>button1</button>
+        <button>button2</button>
+        <button>button3</button>
+    </body>
+</html>
