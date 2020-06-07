@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        #div1{width:100px;height:100px;background-color: red;position: absolute;left:0px;top:100px}
+    </style>
+    <script>
+        /* 
+            动画  ->  图像
+            原理：  能够识别的最小的时间间隔18帧
+
+
+        
+        */
+
+        window.onload = function(){
+            var oBtn = document.getElementById("btn1");
+            var oDiv = document.getElementById("div1");
+
+            var speed = 5;
+            var timer = null;
+            oBtn.onclick = function(){
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    if(oDiv.offsetLeft  >= 500){
+                        clearInterval(timer);
+                    }else{
+                        oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+                    }
+                    
+                },30)
+            }
+        }
+
+    </script>
+
+    <body>
+        <button id = 'btn1'>开始运动</button>
+        <div id = 'div1'></div>
+    </body>
+</html>
